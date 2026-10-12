@@ -9,9 +9,12 @@
     "url": "https://zywave.com"
   },
   "homepage": "https://apex-ai-studio.zywave.com",
+  "documentationUrl": "",
   "repository": "https://github.com/Zywave/AI-Skill-Plugin",
-  "license": "Proprietary",
   "privacyPolicyUrl": "https://www.zywave.com/privacy-statement",
+  "supportUrl": "https://support.zywave.com/s/contactsupport",
+  "termsOfServiceUrl": "https://www.zywave.com/terms-conditions",
+  "license": "Proprietary",
   "keywords": [
     "insurance",
     "commercial-lines",
