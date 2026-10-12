@@ -1,0 +1,6 @@
+{
+  "zywave": {
+    "type": "http",
+    "url": "https://ai.zywave.com/mcp/v1"
+  }
+}
