@@ -1,7 +1,26 @@
 {
-  "name": "zywave-skills",
-  "displayName": "Insurance Skills",
+  "name": "zywave",
+  "displayName": "Zywave",
   "version": "1.0.0",
-  "description": "Insurance-workflow skills for producers, account managers, and producer managers, built on Zywave's MCP tools.",
+  "description": "Prospecting, CRM management, and content intelligence powered by Zywave. Find prospects by broker/industry/geography, manage your book of business, and surface sales-ready content — all from Claude Code. Requires a Zywave account.",
+  "author": {
+    "name": "Zywave",
+    "email": "support@zywave.com",
+    "url": "https://zywave.com"
+  },
+  "homepage": "https://github.com/zywave/claude-plugin-zywave",
+  "repository": "https://github.com/zywave/claude-plugin-zywave",
+  "license": "Proprietary",
+  "keywords": [
+    "insurance",
+    "commercial-lines",
+    "employee-benefits",
+    "personal-lines",
+    "crm",
+    "prospecting",
+    "broker",
+    "benefits",
+    "zywave"
+  ],
   "skills": ["./skills/"]
 }
