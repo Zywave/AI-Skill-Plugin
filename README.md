@@ -10,6 +10,8 @@ There's no per-platform conversion: any compliant AI client reads it directly â€
 Claude Code, GitHub Copilot/VS Code, Cursor, OpenAI Codex, Gemini CLI, Microsoft 365
 Copilot Cowork, and more (see the full [client list](https://agentskills.io/clients)).
 
+> **Note:** This repository is a read-only mirror maintained for distribution.
+
 ## Repository layout
 
 ```
