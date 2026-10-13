@@ -9,9 +9,7 @@ import sys
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 
-FOOTER = ("Source: Zywave loss data. A publicly reported loss event, as recorded; wording follows the case's "
-          "status and allegations are not findings. Not a legal opinion. Lines of business show the coverage "
-          "most likely to respond, not what paid.")
+FOOTER = ("Source: Zywave loss data, a database of legal cases, regulatory actions, and loss events compiled from publicly available sources. We focus on the most significant losses, but the data also includes smaller events and cases that ended with no payment. Not every loss is captured. Some types of risk are tracked only when the loss is large, and some are not currently tracked. The insurance coverage shown is the type most likely to apply if a claim were made. It does not mean the loss was insured or that this coverage paid it. Wording follows the case's status, and allegations are not findings. Not a legal opinion.")
 
 
 def money(n):
@@ -53,7 +51,7 @@ def main(src, out):
     doc.styles["Normal"].font.name = "Arial"
     para(doc, p["title"], size=16, bold=True, after=2)
     parent = p.get("parent")
-    sub = f"{p.get('company', '')}" + (f" | Parent: {parent}" if parent and parent != p.get("company") else "") + f" | Case {p.get('case_id', '')} | Data pulled {p.get('pulled', '')}"
+    sub = f"{p.get('company', '')}" + (f" | Parent: {parent}" if parent and parent != p.get("company") else "") + f" | Case {p.get('case_id', '')} | Data pulled {p.get('pulled', '')}" + (f" | Record updated {p['updated']}" if p.get('updated') else "")
     para(doc, sub, size=9, color="6B6A66", after=6)
     amt = p.get("amount")
     amt_txt = "No dollar amount recorded" if amt is None else money(amt) + (f" ({p['qualifier']})" if p.get("qualifier") else "")

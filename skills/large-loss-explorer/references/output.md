@@ -12,7 +12,7 @@ Build one small profile JSON, then render it with whatever the environment suppo
   "population": {"matching": 1780, "ranked": 45, "shown": 10},
   "cases": [
     {"rank": 1, "id": 5426532, "company": "Uber B.V.", "year": 2026, "amount": 966000000,
-     "qualifier": "", "component": "Fine or penalty", "status": "Settled",
+     "qualifier": "", "component": "Fine or penalty", "status": "Settled", "updated": "2026-03-31",
      "what": "Data protection regulator fine over automated driver account deactivations",
      "flags": ["government regulator"]}
   ],
@@ -23,6 +23,7 @@ Build one small profile JSON, then render it with whatever the environment suppo
 - `what` is one line of about 90 characters at most.
 - `matching` is cases that match the criteria without the amount floor; `ranked` is cases at or above the floor; `shown` is the page.
 - `qualifier` is "est." for an estimate or "provision" for a company's own total, otherwise empty.
+- `updated` is the record's `updatedDate`, optional. Status is as of that date, not the current docket.
 - `flags` is a short list: "estimate", "same incident", "government", "fraud against a program", "insured and uninsured".
 - Never put a total or average of the amounts anywhere. Cases are ranked, not summed.
 

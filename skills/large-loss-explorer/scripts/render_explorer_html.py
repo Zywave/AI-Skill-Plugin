@@ -11,9 +11,7 @@ import html
 import json
 import sys
 
-FOOTER = ("Source: Zywave loss data. Publicly reported loss events, generally $1M or more, ranked by "
-          "disclosed amount. Not a benchmark or a prediction. Smaller companies are underrepresented. "
-          "Lines of business show the coverage most likely to respond, not what paid.")
+FOOTER = ("Source: Zywave loss data, a database of legal cases, regulatory actions, and loss events compiled from publicly available sources. We focus on the most significant losses, but the data also includes smaller events and cases that ended with no payment. Not every loss is captured. Some types of risk are tracked only when the loss is large, and some are not currently tracked. The insurance coverage shown is the type most likely to apply if a claim were made. It does not mean the loss was insured or that this coverage paid it.")
 
 CSS = """
 :root{--ink:#1f1f1e;--mut:#6b6a66;--line:#e1e0d9;--bg:#fff;--card:#f6f5f1;--bar:#2a78d6;--track:#eceae3;--warn:#fff4dc;--warnink:#6b4a00;--acc:#e6f0fb;--accink:#0b4a8f}
@@ -71,7 +69,7 @@ def main(src, out):
         flags = "".join(f"<span class=\"badge{' i' if f in ('same incident',) else ''}\">{e(f)}</span>" for f in c.get("flags", []))
         parts.append(
             f"<tr><td class=\"r\">{e(c['rank'])}</td>"
-            f"<td><b>{e(c['company'])}</b><div class=\"meta\">{e(c['year'])} | {e(c.get('status', ''))}</div></td>"
+            f"<td><b>{e(c['company'])}</b><div class=\"meta\">{e(c['year'])} | {e(c.get('status', ''))}{(' | updated ' + e(c['updated'])) if c.get('updated') else ''}</div></td>"
             f"<td>{e(c['what'])}<div class=\"meta\">{e(c.get('component', ''))} {flags}</div></td>"
             f"<td class=\"a\"><div class=\"amt\">{money(c['amount'])}{q}</div><div class=\"track\"><div class=\"fill\" style=\"width:{w}%\"></div></div></td></tr>")
     parts.append("</tbody></table>")
