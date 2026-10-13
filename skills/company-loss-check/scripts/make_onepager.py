@@ -9,10 +9,7 @@ import sys
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 
-FOOTER = ("Source: Zywave loss data. Publicly reported loss events, generally $1M or more. "
-          "Not this company's own loss runs. Smaller companies are underrepresented, so a thin result "
-          "is not evidence of a clean history. Lines of business show the coverage most likely to respond, "
-          "not what paid.")
+FOOTER = ("Source: Zywave loss data, a database of legal cases, regulatory actions, and loss events compiled from publicly available sources. We focus on the most significant losses, but the data also includes smaller events and cases that ended with no payment. Not every loss is captured. Some types of risk are tracked only when the loss is large, and some are not currently tracked. Smaller companies are underrepresented. A thin result is not evidence of a clean history. This is not the company's own loss runs. The insurance coverage shown is the type most likely to apply if a claim were made. It does not mean the loss was insured or that this coverage paid it.")
 
 
 def money(n):
@@ -75,12 +72,18 @@ def main(src, out, chart=None):
     para(doc, sub, size=9, color="6B6A66", after=8)
 
     family = p.get("scope") == "family"
-    disclosure = f"{h['contributing']:,} of {h['cases']:,} records with an amount"
+    struct = h.get("structural")
+    base = h["cases"] - struct if struct is not None else h["cases"]
+    label = "non-structural records" if struct is not None else "records"
+    disclosure = f"{h['contributing']:,} of {base:,} {label} with an amount"
+    if h.get("above_zero") is not None:
+        disclosure += f", {h['above_zero']:,} above $0"
     if h.get("total_loss") is None or h.get("contributing", 0) == 0:
         total_txt = f"No dollar amount recorded ({disclosure})"
     else:
         total_txt = f"{money(h['total_loss'])} ({disclosure})"
-    rows = [["Case records", f"{h['cases']:,}"], ["Total reported loss", total_txt]]
+    case_txt = f"{h['cases']:,}" + (f" ({struct:,} structural, no amount expected)" if struct is not None else "")
+    rows = [["Case records", case_txt], ["Total reported loss", total_txt]]
     if not family and h.get("average") is not None:
         rows.append(["Average (records with an amount)", money(h["average"])])
     if not family and h.get("largest") is not None:

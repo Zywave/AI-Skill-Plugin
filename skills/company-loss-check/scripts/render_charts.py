@@ -73,8 +73,8 @@ def main(src, out):
 
     name = p.get("company", {}).get("name", "")
     fig.suptitle(f"{name}: publicly reported losses", x=0.01, ha="left", fontsize=12, color=INK)
-    fig.text(0.01, 0.01, "Source: Zywave loss data. Publicly reported events, generally $1M or more. "
-             "Lines of business show likely coverage, not what paid.", fontsize=7.5, color=MUTED)
+    fig.text(0.01, 0.01, "Source: Zywave loss data, from publicly available sources. "
+             "Not every loss is captured. Coverage shown is the type most likely to apply, not what paid.", fontsize=7.5, color=MUTED)
     fig.tight_layout(rect=(0, 0.04, 1, 0.94))
     fig.savefig(out, dpi=160)
     print(out)
