@@ -10,6 +10,7 @@ Charts carry two views: where the losses concentrate (lines of business) and the
   "scope": "entity",
   "pulled": "2026-10-06",
   "headline": {"cases": 665, "total_loss": 3156523055, "contributing": 187,
+               "above_zero": 73, "structural": 141,
                "average": 16879802, "largest": 1350000000, "smallest": 0},
   "lines": [{"name": "Cyber", "cases": 145, "total_loss": 2830626439, "contributing": 71}],
   "years": [{"year": 2024, "cases": 2, "contributing": 0}],
@@ -17,7 +18,7 @@ Charts carry two views: where the losses concentrate (lines of business) and the
 }
 ```
 
-`contributing` always means "records with an amount". `years` holds the most recent 10 years returned, newest first. Omit `largest` and `smallest` for family scope, where the tool returns no family-wide range.
+`contributing` always means "records with an amount", which includes recorded $0. `above_zero` is the count of records above $0 and `structural` the count of Event, Abstract, Transferred to MDL, and Remanded records; both are optional, and when `structural` is present disclosure is shown over `cases` minus `structural`. `years` holds the most recent 10 years returned, newest first. Omit `largest` and `smallest` for family scope, where the tool returns no family-wide range.
 
 ## Rendering ladder (use the first that works)
 

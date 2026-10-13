@@ -14,6 +14,7 @@ Build one small profile JSON, then render it with whatever the environment suppo
   "qualifier": "provision",
   "nature": "A company's recorded cost of the breach, including a legal accrual",
   "pulled": "2026-10-06",
+  "updated": "2021-06-30",
   "what_happened": ["Two or three plain sentences each"],
   "cost": [{"label": "Financial damages", "amount": 1350000000, "note": "recorded by the company"}],
   "where_who": ["One short line each"],
@@ -26,6 +27,7 @@ Build one small profile JSON, then render it with whatever the environment suppo
 
 - `amount` may be omitted when no dollar amount is recorded; the files then say "No dollar amount recorded".
 - `qualifier` is "est.", "provision", or empty.
+- `updated` is the record's `updatedDate`, optional. Status is as of that date.
 - Never put a sum of components anywhere.
 
 ## Rendering ladder
