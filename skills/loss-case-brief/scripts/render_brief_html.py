@@ -10,7 +10,7 @@ import html
 import json
 import sys
 
-FOOTER = ("Source: Zywave loss data, a database of legal cases, regulatory actions, and loss events compiled from publicly available sources. We focus on the most significant losses, but the data also includes smaller events and cases that ended with no payment. Not every loss is captured. Some types of risk are tracked only when the loss is large, and some are not currently tracked. Smaller companies are underrepresented. Wording follows the case's status, and allegations are not findings. Not a legal opinion. The insurance coverage shown is the type most likely to apply if a claim were made. It does not mean the loss was insured or that this coverage paid it.")
+FOOTER = ("Source: Zywave loss data, a database of legal cases, regulatory actions, and loss events compiled from publicly available sources. We focus on the most significant losses, but the data also includes smaller events and cases that ended with no payment. Not every loss is captured. Some types of risk are tracked only when the loss is large, and some are not currently tracked. The insurance coverage shown is the type most likely to apply if a claim were made. It does not mean the loss was insured or that this coverage paid it. Wording follows the case's status, and allegations are not findings. Not a legal opinion.")
 
 CSS = """
 :root{--ink:#1f1f1e;--mut:#6b6a66;--line:#e1e0d9;--bg:#fff;--card:#f6f5f1;--warn:#fff4dc;--warnink:#6b4a00}
